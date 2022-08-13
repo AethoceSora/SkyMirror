@@ -1,59 +1,112 @@
+
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html lang="en">
 <head>
-  <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
-  <title>SkyMirror</title>
-  <link rel="shortcut icon" href="http://cf.cdn.blog.atr.me/wp-content/favicon.png" type="image/x-icon" />
+<meta charset="utf-8">
+<title>SkyMirror</title>
 
-  <link rel="stylesheet" type="text/css" href="style.css" media="screen" title="Default" />
+<script type="text/javascript" src="https://cdn.staticfile.org/jquery/3.6.0/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" href="screen.css" type="text/css">
 
-  <script
-  src="https://code.jquery.com/jquery-3.6.0.min.js"
-  integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
-  crossorigin="anonymous"></script>
+<style type="text/css">
+	body {
+		font: 'Courier New';
+		background-color: #000000;
+		color: #ffffff;
+	}
+	#header {
+	}
+	#content {
+		height:500px;	
+	}
+	#footer {
+		position:absolute; 
+		bottom:0; 
+		color:#FFF; 
+		font-size:x-small; 
+		opacity:.5;
+		text-align: right;
+	}
+</style>
 
-  <!-- MINIFY: -->
-  <script type="text/javascript" src="jquery.hotkeys-0.7.9.js"></script>
-  <script type="text/javascript" src="jquery.browser.js"></script>
-  <script type="text/javascript" src="jquery.konami.js"></script>
-  <script type="text/javascript" src="cli.js"></script>
-  <script type="text/javascript" src="skymirror_cli.js"></script>
-
-<!-- GA分析代码 -->
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-68WNB7LFD3"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-68WNB7LFD3');
+<script type="text/javascript">
+	function set_cli_focus()
+	{
+		$('#cli').trigger('focus');
+		setTimeout(set_cli_focus, 500);
+	}
 </script>
-<!-- END GA SCRIPT -->
 </head>
 <body>
-  <div id="pagealert" title="Press any key for next page of text"> --More-- </div>
-  <div id="indicators"><span id="alt-indicator">Alt-</span><span id="ctrl-indicator">Ctrl-</span> <span id="scroll-indicator">SCR LOCK</span></div>
-  <div id="screen">
-   <div id="display">
-    <div id="welcome-title">
-      <h1>SkyMirror</h1>
-    </div>
-    <div id="welcome-slogan">
-      <h2>银河从天穹横跨而过，镜花水月终究只是梦一场</h2>
-    </div>
-    <noscript>
-      <p>Sorry, the CLI requires JavaScript to work. Please turn on JavaScript, or try the <a href="/1/">GUI Interface</a>.</p>
-    </noscript>
-   </div>
-   <div id="bottomline">
-    <span id="inputline"><span id="prompt"></span><span id="lcommand"></span><span id="cursor" >&nbsp;</span><span id="rcommand"></span></span><span id="spinner"></span>
-   </div>
-  </div>
-  <div id="credit">Art by <a href="http://xkcd.com/about/">Randall Munroe</a>. XKCD CLI by <a href="http://chromakode.com">Chromakode</a>. Original CLI2 by <a href="http://thrind.xamai.ca">Rod McFarland</a>. <a href="https://github.com/AstroProfundis/cli-entrance">Source code</a>.</div>
-</body>
 
+<div class="container showgrid">
+	<div id="header" >
+	    <nav class="navbar">
+	        <ul>
+    	        <li><a href="#" class="link" cmd="cat about.txt" style="color: #bbbbbb;">About</a></li>
+    	        <li><a href="#" class="link" cmd="cat intro.txt" style="color: #cccccc;">Intro</a></li>
+    	        <li><a href="#" class="link" cmd="help" style="color: #dddddd;">Help</a></li>
+    	        <li><a href="http://book.ctfer.club/" class="link" style="color: #eeeeee;">Book</a></li>
+    	        <li><a href="#" class="link" cmd="cat contact.txt" style="color: #ffffff;">Contact</a></li>
+				<li><a href="#" class="link" cmd="cat score.txt" style="color: rgb(255, 255, 255);">Score</a></li>
+    	        <li><a href="#" class="link" cmd="cat member.txt" id="member" style="color: #fa0a0a;">Member</a></li>
+    	        <li><a href="#" class="link" cmd="cat .flag" id="flag">Flag</a></li>
+	        </ul>
+	    </nav>
+	    <div class="logo">
+    		<pre style="font:1em 'andale mono', 'lucida console', 'Courier New'"><b>
+<font color="#ffffff">       _____ _          __  __ _                      </font>
+<font color="#dddddd">     / ____| |        |  \/  (_)                     </font>
+<font color="#bbbbbb">   | (___ | | ___   _| \  / |_ _ __ _ __ ___  _ __  </font>
+<font color="#999999">   \___ \| |/ / | | | |\/| | | '__| '__/ _ \| '__| </font>
+<font color="#777777">  ____) |  < | |_| | |  | | | |  | | | (_) | |    </font>
+<font color="#555555">|_____/|_|\_\\__, |_|  |_|_|_|  |_|  \___/|_|    </font>
+<font color="#333333">             _/ |                              </font>
+<font color="#111111">           |___/                              </font>
+
+    		</b></pre>
+    	</div>
+	</div>
+
+	<div id="content">
+		<iframe id="cli" src="cli.html"></iframe>
+	</div>
+
+	<div class="footer" id="credit">Design by Aethoce. Inspired by <a href="http://shellphish.net/">ShellPhish</a>. XKCD CLI by <a href="http://chromakode.com">Chromakode</a>. <a href="http://github.com/chromakode/xkcdfools">Source code</a>.
+	</div>
+</div>
+
+<script type="text/javascript">
+	function runCommand(cmd) {
+		var terminal = $('#cli')[0].contentWindow.Terminal;
+		terminal.clear(terminal);
+		terminal.runCommand(cmd);
+	}
+	$(document).ready(function(){
+		$(".link").click(function(event){
+			var cmd=$(this).attr('cmd');
+			runCommand(cmd);
+		});
+
+		set_cli_focus();
+	});
 
 </script>
-</html>
 
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-45274893-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+</body>
+</html>

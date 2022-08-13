@@ -120,17 +120,61 @@ Filesystem = {
 		$.each([
 			'这是SkyMirror的命令行首页',
 			'SkyMirror是来自齐鲁工业大学的网络安全战队',
-			'可以通过"cd blog"指令进入我们的博客',
+			'可以通过"cd book"指令进入我们的博客',
 			'也可以通过"look"指令和"go"指令探索神秘的领域',
 			''
 		], function(num, line) {
 			terminal.print(line);
 		});
-	}}
+	}},
+	'intro.txt': {type:'file', read:function(terminal) {
+		terminal.print();
+		terminal.print($('<h4>').text('关于CTF'));
+		terminal.print();
+		$.each([
+			'CTF（Capture The Flag）中文一般译作夺旗赛，在网络安全领域中指的是网络安全技术人员之间进行技术竞技的一种比赛形式。',
+			'参赛团队之间通过进行攻防对抗、程序分析等形式，率先从主办方给出的比赛环境中得到一串具有一定格式的字符串或其他内容，并将其提交给主办方，从而夺得分数',
+			'CTF起源于1996年DEFCON全球黑客大会，以代替之前黑客们通过互相发起真实攻击进行技术比拼的方式。其已经成为全球范围网络安全圈流行的竞赛形式，2013年全球举办了超过五十场国际性CTF赛事。',
+			'而DEFCON作为CTF赛制的发源地，DEFCON CTF也成为了全球最高技术水平和影响力的CTF竞赛，类似于CTF赛场中的“世界杯” 。',
+			''
+		], function(num, line) {
+			terminal.print(line);
+		});
+	}},
+	'score.txt': {type:'file', read:function(terminal) {
+		terminal.print();
+		terminal.print($('<h4>').text('战队成绩'));
+		terminal.print();
+		$.each([
+			'2022ciscn   初赛全国第60名和第66名（赛区第7名和第9名） 复赛三等奖',
+			'2022iscc   个人挑战赛&无限擂台赛 每位成员均获双项一等奖',
+			'2022网刃杯   全国第28名',
+			'*CTF 2022   全球第66名',
+			'2022强网杯   全国第69名',
+			'第七届美亚杯中国电子取证大赛 团体赛   全国一等奖',
+			'第七届美亚杯中国电子取证大赛 资格赛   全国一等奖',
+			'第十四届全国大学生信息安全竞赛   全国三等奖',
+			'大学生网络安全尖峰训练营   精英百强',
+			''
+		], function(num, line) {
+			terminal.print(line);
+		});
+	}},
+	'contact.txt': {type:'file', read:function(terminal) {
+		terminal.print();
+		terminal.print($('<h4>').text('战队成绩'));
+		terminal.print();
+		$.each([
+			'我们面向感兴趣的同学建立了QQ群：922387702',
+			''
+		], function(num, line) {
+			terminal.print(line);
+		});
+	}},
 };
-Filesystem['blog-cn'] = linkFile('http://book.ctfer.club/');
+Filesystem['book'] = linkFile('https://book.ctfer.club/');
 Filesystem['wiki'] = linkFile('https://ctf-wiki.org/');
-Filesystem['AboutMe'] = linkFile('http://book.ctfer.club/blog/post/admin/%E5%BC%80%E5%A7%8B%E7%9A%84%E5%BC%80%E5%A7%8B');
+Filesystem['AboutMe'] = linkFile('https://book.ctfer.club/blog/post/admin/%E5%BC%80%E5%A7%8B%E7%9A%84%E5%BC%80%E5%A7%8B');
 TerminalShell.pwd = Filesystem;
 
 TerminalShell.commands['cd'] = function(terminal, path) {
